@@ -11,6 +11,8 @@ npm run dev
 
 Open [https://localhost:3000](https://localhost:3000) with your browser to see the result.
 
+Add your public key and server id values in serverActions.tsx file.
+
 ---
 
 https://github.com/stellar/js-stellar-sdk/issues/1132
