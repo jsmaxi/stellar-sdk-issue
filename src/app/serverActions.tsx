@@ -3,6 +3,7 @@
 import {
   BASE_FEE,
   Contract,
+  Keypair,
   Networks,
   Transaction,
   TransactionBuilder,
@@ -56,6 +57,19 @@ export async function testSend(signedTransaction: string) {
     }
   } catch (e) {
     console.error("[server]", e);
+    throw e;
+  }
+}
+
+export async function testFaucet() {
+  try {
+    const server = new Server("https://soroban-testnet.stellar.org:443");
+    const pair = Keypair.random();
+    const address: string = pair.publicKey();
+    const result = await server.requestAirdrop(address);
+    console.log(result);
+  } catch (e) {
+    console.error("[client]", e);
     throw e;
   }
 }

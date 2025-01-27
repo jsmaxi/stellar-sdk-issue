@@ -2,7 +2,7 @@
 
 "use client";
 
-import { testPrepare, testSend } from "./serverActions";
+import { testFaucet, testPrepare, testSend } from "./serverActions";
 import { testSign } from "./clientActions";
 
 async function handleClick() {
@@ -11,6 +11,8 @@ async function handleClick() {
   const sign = await testSign(prep);
   console.log("[Client] Check client console for details!");
   const _ = await testSend(sign);
+  console.log("[Client] Check server console for details!");
+  const __ = await testFaucet();
   console.log("[Client] Check server console for details!");
 }
 
